@@ -1,2 +1,6 @@
-# openg2p-documents
-OpenG2P document management module to facilitate file inputs and storing the same in S3 Buckets. 
+# OpenG2P Documents
+
+This repo contains openg2p documents related modules.
+
+## Licenses
+This repository is licensed under [MPL-2.0](LICENSE).
