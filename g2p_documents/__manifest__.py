@@ -11,6 +11,7 @@
     "depends": [
         "storage_backend_s3",
         "storage_file",
+        "g2p_registry_base",
     ],
     "data": [
         "views/main_view.xml",
