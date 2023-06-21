@@ -50,6 +50,6 @@
         action="action_g2p_document_store"
         parent="g2p_documents_main_menu_root"
         sequence="10"
-        groups="g2p_registry_base.group_g2p_admin"
+        groups="g2p_documents.group_g2p_document_admin"
     />
 </odoo>
