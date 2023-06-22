@@ -1,1 +1,1 @@
-G2P Registry Documents
+G2P Documents Store

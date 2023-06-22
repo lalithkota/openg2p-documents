@@ -1,6 +1,6 @@
 # Part of OpenG2P Documents. See LICENSE file for full copyright and licensing details.
 {
-    "name": "G2P Documents",
+    "name": "G2P Documents Store",
     "category": "G2P",
     "version": "15.0.1.1.0",
     "sequence": 1,
@@ -13,9 +13,12 @@
         "storage_file",
     ],
     "data": [
+        "security/groups.xml",
+        "security/ir.model.access.csv",
         "views/main_view.xml",
         "views/g2p_document_store.xml",
         "views/g2p_document_files.xml",
+        "views/g2p_document_tags.xml",
         "data/storage_backend.xml",
     ],
     "external_dependencies": {"python": ["boto3<=1.15.18", "python_slugify"]},
