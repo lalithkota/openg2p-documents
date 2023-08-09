@@ -7,7 +7,7 @@
     "author": "OpenG2P",
     "website": "https://openg2p.org",
     "license": "Other OSI approved licence",
-    "development_status": "Alpha",
+    "development_status": "Production/Stable",
     "depends": [
         "storage_backend_s3",
         "storage_file",
