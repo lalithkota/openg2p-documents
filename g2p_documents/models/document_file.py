@@ -28,7 +28,7 @@ class G2PDocumentFile(models.Model):
 
     def _compute_file_type(self):
         for file in self:
-            if file.extension:
+            if file.extension and isinstance(file.mimetype, str):
                 file.file_type = file.mimetype.split("/")[1].upper()
             else:
                 file.file_type = False
