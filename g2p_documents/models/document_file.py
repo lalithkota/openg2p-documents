@@ -1,4 +1,8 @@
+import logging
+
 from odoo import fields, models
+
+_logger = logging.getLogger(__name__)
 
 
 class G2PDocumentFile(models.Model):
@@ -32,3 +36,21 @@ class G2PDocumentFile(models.Model):
                 file.file_type = file.mimetype.split("/")[1].upper()
             else:
                 file.file_type = False
+
+    def _compute_data(self):
+        # Handled key error
+        for rec in self:
+            try:
+                if self._context.get("bin_size"):
+                    rec.data = rec.file_size
+                elif rec.relative_path:
+                    rec.data = rec.backend_id.sudo().get(
+                        rec.relative_path, binary=False
+                    )
+                else:
+                    rec.data = None
+            except Exception as e:
+                # Handle exceptions appropriately
+                rec.data = None
+                error_message = f"Error computing data for record {rec.id}: {e}"
+                _logger.error(error_message)
