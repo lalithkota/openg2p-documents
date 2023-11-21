@@ -1,7 +1,8 @@
 import logging
 
-from odoo import fields, models
+from odoo import fields, models, _
 
+from odoo.exceptions import UserError
 _logger = logging.getLogger(__name__)
 
 
@@ -50,7 +51,10 @@ class G2PDocumentFile(models.Model):
                 else:
                     rec.data = None
             except Exception as e:
-                # Handle exceptions appropriately
-                rec.data = None
-                error_message = f"Error computing data for record {rec.id}: {e}"
-                _logger.error(error_message)
+                if 'NoSuchKey' in str(e):
+                    err_msg = "The file with the given name is not present on the s3."
+                    _logger.error(err_msg)
+                    raise UserError(_(err_msg))
+                else:
+                    raise 
+                
