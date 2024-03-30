@@ -18,18 +18,14 @@ class G2PDocumentFile(models.Model):
             tags = [
                 tags,
             ]
-        return self.filtered(
-            lambda x: all((x.tags_ids and tag in x.tags_ids.name) for tag in tags)
-        )
+        return self.filtered(lambda x: all((x.tags_ids and tag in x.tags_ids.name) for tag in tags))
 
     def filter_for_tags_any(self, tags):
         if tags and not isinstance(tags, list):
             tags = [
                 tags,
             ]
-        return self.filtered(
-            lambda x: any((x.tags_ids and tag in x.tags_ids.name) for tag in tags)
-        )
+        return self.filtered(lambda x: any((x.tags_ids and tag in x.tags_ids.name) for tag in tags))
 
     def _compute_file_type(self):
         for file in self:
@@ -45,9 +41,7 @@ class G2PDocumentFile(models.Model):
                 if self._context.get("bin_size"):
                     rec.data = rec.file_size
                 elif rec.relative_path:
-                    rec.data = rec.backend_id.sudo().get(
-                        rec.relative_path, binary=False
-                    )
+                    rec.data = rec.backend_id.sudo().get(rec.relative_path, binary=False)
                 else:
                     rec.data = None
             except Exception as e:
