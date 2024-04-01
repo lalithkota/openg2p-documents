@@ -1,14 +1,14 @@
 
 <!-- /!\ Non OCA Context : Set here the badge of your runbot / runboat instance. -->
-[![Pre-commit Status](https://github.com/OpenG2P/openg2p-documents/actions/workflows/pre-commit.yml/badge.svg?branch=15.0-develop)](https://github.com/OpenG2P/openg2p-documents/actions/workflows/pre-commit.yml?query=branch%3A15.0-develop)
-[![Build Status](https://github.com/OpenG2P/openg2p-documents/actions/workflows/test.yml/badge.svg?branch=15.0-develop)](https://github.com/OpenG2P/openg2p-documents/actions/workflows/test.yml?query=branch%3A15.0-develop)
+[![Pre-commit Status](https://github.com/OpenG2P/openg2p-documents/actions/workflows/pre-commit.yml/badge.svg?branch=17.0-develop)](https://github.com/OpenG2P/openg2p-documents/actions/workflows/pre-commit.yml?query=branch%3A17.0-develop)
+[![Build Status](https://github.com/OpenG2P/openg2p-documents/actions/workflows/test.yml/badge.svg?branch=17.0-develop)](https://github.com/OpenG2P/openg2p-documents/actions/workflows/test.yml?query=branch%3A17.0-develop)
 <!-- /!\ Non OCA Context : Set here the badge of your translation instance. -->
 
 <!-- /!\ do not modify above this line -->
 
 # OpenG2P Documents
 
-This repo contains openg2p documents related modules. Refer to [OpenG2P Docs](https://docs.openg2p.org/v/1.1).
+This repo contains openg2p documents related modules. Refer to [OpenG2P Docs](https://docs.openg2p.org).
 
 <!-- /!\ do not modify below this line -->
 
@@ -20,7 +20,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[g2p_documents](g2p_documents/) | 15.0.1.2.0 |  | G2P Documents Store
+[g2p_documents](g2p_documents/) | 17.0.1.0.0 |  | G2P Documents Store
 
 [//]: # (end addons)
 

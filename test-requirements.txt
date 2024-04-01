@@ -1,0 +1,3 @@
+git+https://github.com/OpenG2P/storage@17.0#subdirectory=storage_backend
+git+https://github.com/OpenG2P/storage@17.0#subdirectory=storage_backend_s3
+git+https://github.com/OpenG2P/storage@17.0#subdirectory=storage_file
