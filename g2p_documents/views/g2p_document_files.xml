@@ -30,6 +30,9 @@
                     <field name="tags_ids" widget="many2many_tags" />
                 </h2>
             </xpath>
+            <xpath expr="//field[@name='data']" position="replace">
+                <field name="data" readonly="id" filename="filename" required="1" />
+            </xpath>
         </field>
     </record>
 
