@@ -21,7 +21,7 @@
         "views/g2p_document_tags.xml",
         "data/storage_backend.xml",
     ],
-    "external_dependencies": {"python": ["boto3<=1.15.18", "python_slugify", "python-magic"]},
+    "external_dependencies": {"python": ["boto3<=1.15.18", "python_slugify", "python-magic", "libmagic"]},
     "assets": {},
     "demo": [],
     "images": [],
