@@ -1,10 +1,11 @@
 import base64
 import binascii
+import io
 import logging
 import mimetypes
 import os
 
-import magic
+from PIL import Image
 
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
@@ -44,9 +45,9 @@ class G2PDocumentFile(models.Model):
         for record in self:
             record.write(record._prepare_meta_for_file())
             if not record.mimetype:
-                binary_data = base64.b64decode(self.data)
-                magic_data = magic.Magic(mime=True)
-                record.mimetype = magic_data.from_buffer(binary_data)
+                binary_data = base64.b64decode(record.data)
+                mime = self._get_mime_type(binary_data)
+                record.mimetype = mime
 
             record.backend_id.sudo().add(
                 record.relative_path,
@@ -68,13 +69,20 @@ class G2PDocumentFile(models.Model):
             if mime is None and rec.data:
                 try:
                     binary_data = base64.b64decode(rec.data)
-                    magic_data = magic.Magic(mime=True)
-                    mime = magic_data.from_buffer(binary_data)
-
+                    mime = self._get_mime_type(binary_data)
                 except binascii.Error as e:
                     _logger.info(f"Base64 decoding error: {e}")
 
             rec.mimetype = mime
+
+    def _get_mime_type(self, binary_data):
+        try:
+            image = Image.open(io.BytesIO(binary_data))
+            mime_type = Image.MIME[image.format]
+            return mime_type
+        except OSError as e:
+            _logger.info(f"Image processing error: {e}")
+            return None
 
     def _compute_data(self):
         # Handled key error
